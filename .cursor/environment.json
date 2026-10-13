@@ -1,0 +1,5 @@
+{
+    "name": "petclinic-boot-2.7",
+    "build": { "dockerfile": "Dockerfile" },
+    "install": "chmod +x mvnw && ./mvnw -B -q -DskipTests dependency:go-offline && ./mvnw -B -q -DskipTests install"
+}
