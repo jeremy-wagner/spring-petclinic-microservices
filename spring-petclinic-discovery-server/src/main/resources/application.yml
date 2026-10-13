@@ -11,11 +11,7 @@ logging:
       springframework:
         boot: INFO
         web: INFO
-
----
-spring:
-  config:
-    activate:
-      on-profile: docker
-    import: configserver:http://config-server:8888
+  pattern:
+    # Logging pattern containing traceId and spanId; no longer provided through Sleuth by default
+    level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
 

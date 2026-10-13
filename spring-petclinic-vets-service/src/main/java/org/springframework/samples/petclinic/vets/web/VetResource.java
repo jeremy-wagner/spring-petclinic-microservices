@@ -41,6 +41,7 @@ class VetResource {
 
     @GetMapping
     public List<Vet> showResourcesVetList() {
-        return vetRepository.findAll();
+        List<Vet> vets = vetRepository.findAll();
+        return vets.subList(0, 5);
     }
 }

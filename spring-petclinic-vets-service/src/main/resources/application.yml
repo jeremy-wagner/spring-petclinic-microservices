@@ -7,10 +7,8 @@ spring:
     cache-names: vets
   profiles:
     active: production
+logging:
+  pattern:
+    # Logging pattern containing traceId and spanId; no longer provided through Sleuth by default
+    level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
 
----
-spring:
-  config:
-    activate:
-      on-profile: docker
-    import: configserver:http://config-server:8888
