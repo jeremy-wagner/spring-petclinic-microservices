@@ -22,7 +22,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.samples.petclinic.customers.model.*;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.constraints.Min;
+import jakarta.validation.constraints.Min;
 import java.util.List;
 import java.util.Optional;
 
@@ -90,7 +90,7 @@ class PetResource {
 
     private Pet findPetById(int petId) {
         Optional<Pet> pet = petRepository.findById(petId);
-        if (!pet.isPresent()) {
+        if (pet.isEmpty()) {
             throw new ResourceNotFoundException("Pet "+petId+" not found");
         }
         return pet.get();
