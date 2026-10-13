@@ -1,0 +1,15 @@
+---
+description: Conventions for the Spring Boot 3 upgrade
+globs: **/*.java
+alwaysApply: false
+---
+
+When upgrading code to Spring Boot 3:
+
+- Replace WebSecurityConfigurerAdapter with a SecurityFilterChain @Bean.
+- Use authorizeHttpRequests and requestMatchers. Never use antMatchers or authorizeRequests.
+- Move javax.persistence, javax.validation and javax.servlet imports to jakarta.
+- Replace Spring Cloud Sleuth with Micrometer Tracing.
+- Do not change public REST endpoint paths, request bodies or response bodies.
+- Do not change files under src/main/resources/db/. Flag schema questions in the PR description instead.
+- Run the module's tests after each change.

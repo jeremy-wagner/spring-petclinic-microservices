@@ -1,0 +1,10 @@
+---
+description: How this team writes tests
+globs: **/src/test/**/*.java
+alwaysApply: false
+---
+
+- Use JUnit 5 and AssertJ assertions.
+- Use @WebMvcTest for controller tests and @DataJpaTest for repository tests.
+- Use Mockito for collaborators. Don't mock the Spring Security filter chain.
+- Name tests after the behavior they check, for example shouldReturnOwnerWhenIdExists.

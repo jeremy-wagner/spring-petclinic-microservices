@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "hooks": {
+    "beforeReadFile": [
+      { "command": ".cursor/hooks/block-secrets.sh" }
+    ],
+    "preToolUse": [
+      {
+        "command": ".cursor/hooks/block-db-scripts.sh",
+        "matcher": "Write"
+      }
+    ]
+  }
+}
